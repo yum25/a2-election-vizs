@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Election Data Visualizations 2024</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Tracking Live Election Updates in Ann Arbor</h1>
+        <address>By <a href="https://yum25.github.io">Marie Yu</a></address>
+      </header>
+      <section>
+        <div>
+          <p style="margin-top: 2rem">
+            The Michigan Daily Web Team created a few live trackers on local
+            elections and voting wait times for election day (November 5th,
+            2024). These graphics were displayed during the day of the election,
+            but have since been taken down - so I've decided to compile them
+            here and explain some of the process and methods.
+          </p>
+          <br />
+          <p>
+            The first graph on the top shows the registration wait times on
+            Monday, November 4th. The second graph shows the registration wait
+            times on Tuesday, November 5th. While registration times peaked at
+            around 100 minutes the day before the election, election day was
+            much calmer, with a steady and small stream of voters throughout the
+            day.
+          </p>
+          <br />
+          <p>
+            According to staff at the University of Michigan Museum of Art, the
+            actual wait times were usually shorter than the reported wait times,
+            which were generally reported as 1 person in line = 1 minute of wait
+            time. To reflect this, we used a <b>0.7</b> multiplier to accurately
+            display the actual time in line.
+          </p>
+          <br />
+          <p>
+            The data scraper was built a few days in advance using Python as an AWS
+            Lambda function. Using AWS EventBridge, we scraped the City of Ann
+            Arbor website every 5 minutes for updated wait times. Due to
+            registration wait times being tracked the week before the election,
+            we had a decent amount of time for test runs of the scraper before the day
+            of!
+          </p>
+        </div>
+
+        <div class="graphic">
+          <figure></figure>
+          <div id="tooltip"></div>
+          <script type="module" src="/src/graphic.js"></script>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
