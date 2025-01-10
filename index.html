@@ -41,21 +41,34 @@
           </p>
           <br />
           <p>
-            The data scraper was built a few days in advance using Python as an AWS
-            Lambda function. Using AWS EventBridge, we scraped the City of Ann
-            Arbor website every 5 minutes for updated wait times. Due to
+            The data scraper was built a few days in advance using Python as an
+            AWS Lambda function. Using AWS EventBridge, we scraped the City of
+            Ann Arbor website every 5 minutes for updated wait times. Due to
             registration wait times being tracked the week before the election,
-            we had a decent amount of time for test runs of the scraper before the day
-            of!
+            we had a decent amount of time for test runs of the scraper before
+            the day of!
           </p>
         </div>
-
         <div class="graphic">
-          <figure></figure>
-          <div id="tooltip"></div>
-          <script type="module" src="/src/graphic.js"></script>
+          <figure id="times"></figure>
+          <div id="tooltip-times"></div>
         </div>
       </section>
+      <section style="max-width: 1050px">
+        <p>
+          Our second tracker scraped data using the same methodology as our wait
+          times tracker, and displayed live updates for votes on the City of Ann
+          Arbor Proposals. This tracker was refined throughout the course of
+          election night as data began to come in. While the maps were live
+          updating, we used dashed filling to represent that votes were still
+          being counted.
+        </p>
+      </section>
+      <div>
+        <figure id="results"></figure>
+        <div id="tooltip-results"></div>
+      </div>
+      <script type="module" src="/src/graphics.js"></script>
     </main>
   </body>
 </html>

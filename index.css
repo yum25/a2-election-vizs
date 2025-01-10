@@ -4,14 +4,19 @@ body {
 }
 
 main {
-	max-width: 1100px;
-	margin: 0 auto;
-	
 	padding: 1rem;
 	box-sizing: border-box;
 }
 
+header {
+	text-align: center;
+	margin: 1rem;
+}
+
 section {
+	max-width: 1100px;
+	margin: 0 auto;
+
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(100px, 100%), 1fr));
 
@@ -29,9 +34,27 @@ section div {
 	grid-column: span 6;
 }
 
-figure div {
+#times div {
 	max-width: 600px;
 }
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(325px, 100%), 1fr))
+}
+
+#results p {
+	margin: 5px;
+	font-size: 16px;
+	
+}
+
+.block {
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	margin-right: 0.5rem;
+  }
 
 h1 {
 	font-size: 1.3rem;
@@ -58,7 +81,7 @@ h3 {
 	margin-left: 15px;
 }
 
-#tooltip {
+#tooltip-times {
 	position: absolute;
 	font-family: 'Open Sans';
 	font-size: 14px;
@@ -73,3 +96,23 @@ h3 {
 	box-shadow: 0px 0px 2px 1px gray;
 	opacity: 0;
 }
+
+#tooltip-results {
+	position: absolute;
+	font-family: 'Open Sans';
+	font-size: 14px;
+	width: 160px;
+	height: 100px;
+	box-sizing: border-box;
+	pointer-events: none;
+	top: 20px;
+	left: 10px;
+	padding: 8px;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 0px 0px 2px 1px gray;
+	opacity: 0;
+  }
+
+  #tooltip-results p {
+	margin: 5px;
+  }
