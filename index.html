@@ -8,19 +8,22 @@
     <title>Election Data Visualizations 2024</title>
   </head>
   <body>
+    <header>
+      <h1>Tracking Live Election Updates in Ann Arbor</h1>
+      <address>By <a href="https://yum25.github.io">Marie Yu</a></address>
+    </header>
     <main>
-      <header>
-        <h1>Tracking Live Election Updates in Ann Arbor</h1>
-        <address>By <a href="https://yum25.github.io">Marie Yu</a></address>
-      </header>
       <section>
         <div>
           <p style="margin-top: 2rem">
-            The Michigan Daily Web Team created a few live trackers on local
-            elections and voting wait times for election day (November 5th,
-            2024). These graphics were displayed during the day of the election,
-            but have since been taken down - so I've decided to compile them
-            here and explain some of the process and methods.
+            <a href="https://michigandaily.github.io/"
+              >The Michigan Daily Web Team</a
+            >
+            created a few live trackers on local elections and voting wait times
+            for election day (November 5th, 2024). These graphics were displayed
+            during the day of the election, but have since been taken down - so
+            I've decided to compile them here and explain some of the processes
+            and methods.
           </p>
           <br />
           <p>
@@ -41,12 +44,15 @@
           </p>
           <br />
           <p>
-            The data scraper was built a few days in advance using Python as an
-            AWS Lambda function. Using AWS EventBridge, we scraped the City of
-            Ann Arbor website every 5 minutes for updated wait times. Due to
-            registration wait times being tracked the week before the election,
-            we had a decent amount of time for test runs of the scraper before
-            the day of!
+            The data scraper was built a few days in advance using Python with
+            an AWS Lambda function. Using AWS EventBridge, we scraped the
+            <a
+              href="https://www.a2gov.org/departments/city-clerk/Elections/Pages/Line-Tracker.aspx"
+              >City of Ann Arbor website</a
+            >
+            every 5 minutes for updated wait times. Due to registration wait
+            times being tracked the week before the election, we had a decent
+            amount of time for test runs of the scraper before the day of!
           </p>
         </div>
         <div class="graphic">
@@ -57,12 +63,55 @@
       <section style="max-width: 1050px">
         <p>
           Our second tracker scraped data using the same methodology as our wait
-          times tracker, and displayed live updates for votes on the City of Ann
-          Arbor Proposals. This tracker was refined throughout the course of
-          election night as data began to come in. While the maps were live
-          updating, we used dashed filling to represent that votes were still
-          being counted.
+          times tracker, and displayed
+          <a
+            href="https://electionresults.ewashtenaw.org/electionreporting/nov2024/"
+            >live updates for votes</a
+          >
+          on the City of Ann Arbor proposals. This tracker was
+          <span
+            onmouseover="fadein(event)"
+            onmouseout="fadeout(event)"
+            id="hover"
+            style="display: inline-block; background: rgb(155, 127, 197)"
+            >refined throughout the course of election night</span
+          >
+          as data began to come in. While the maps were live updating, we used
+          dashed lines to represent that votes were still being counted.
         </p>
+        <div id="behind-the-scenes">
+          <div class="speech-bubble">
+            <img src="/assets/maps.png" />
+            <p style="margin: 0 15px">
+              <small
+                ><i
+                  >Being in a newsroom on election night feels special - the
+                  sensation of being a part of the history in covering this
+                  small moment.
+                </i></small
+              >
+            </p>
+          </div>
+        </div>
+        <script>
+          let dialog = document.getElementById("behind-the-scenes");
+          let el = document.getElementById("hover");
+
+          function fadein(e) {
+            el.style.background = "rgb(132, 108, 167)";
+            dialog.style.transform = `translate(${e.pageX - 200}px, ${
+              e.pageY - 500
+            }px)`;
+            dialog.classList.remove("fadeout");
+            dialog.classList.add("fadein");
+          }
+
+          function fadeout(e) {
+            el.style.background = "rgb(155, 127, 197)";
+            dialog.classList.add("fadeout");
+            dialog.classList.remove("fadein");
+          }
+        </script>
       </section>
       <div>
         <figure id="results"></figure>
@@ -70,5 +119,14 @@
       </div>
       <script type="module" src="/src/graphics.js"></script>
     </main>
+    <footer style="max-width: 800px; margin: 0 auto">
+      <p style="text-align: center">
+        <i>
+          A special thanks to Angela Voit, Anushka Raheja, Darrin Zhou and
+          Daniel Johnson who worked with dedication on these graphics before and
+          during the night of the election.
+        </i>
+      </p>
+    </footer>
   </body>
 </html>
