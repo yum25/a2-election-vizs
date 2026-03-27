@@ -484,7 +484,7 @@ const drawMap = async (i, yes, no) => {
     .attr("stroke-width", 1)
     .on("mouseover", function () {
       d3.select(this).attr("stroke", "black");
-      this.parentNode.appendChild(this);
+      // this.parentNode.appendChild(this);
       d3.select("#tooltip-results")
         .style("opacity", 1)
 
